@@ -1,0 +1,16 @@
+<IfModule mod_rewrite.c>
+# That was ONLY to protect you from 500 errors
+# if your server did not have mod_rewrite enabled
+
+RewriteEngine On
+# RewriteBase /
+# NOT needed unless you're using mod_alias to redirect
+
+RewriteCond %{REQUEST_URI} !/public
+RewriteRule ^(.*)$ public/$1 [L]
+# Direct all requests to /public folder
+
+</IfModule>
+<FilesMatch ".(inc|php|php3|php4|php5|php6|phtml|phps)$"> # PHP Version 81
+AddHandler x-httpd-php81 .inc .php .php3 .php4 .php5 .php6 .phtml # PHP Version 81
+</FilesMatch> # PHP Version 81
